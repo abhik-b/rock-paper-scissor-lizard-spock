@@ -1,0 +1,176 @@
+.results,
+.pending {
+  margin-top: 15%;
+  color: white;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  text-align: center;
+  align-items: center;
+  max-height: 560px;
+  height: 60vh;
+  text-transform: uppercase;
+}
+.pick {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-evenly;
+  margin: 0 15px;
+  align-items: center;
+  height: 100%;
+  padding: 5px;
+}
+.pick h3 {
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.house {
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.226);
+  width: 100px;
+  height: 100px;
+}
+.result {
+  grid-column: 1 / span 2;
+}
+
+.result div {
+  display: grid;
+  place-items: center;
+  text-transform: uppercase;
+  gap: 10px;
+}
+.result h2 {
+  font-size: 33px;
+}
+.win {
+  position: relative;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+.win::before,
+.win::after {
+  content: "";
+  background: hsl(229, 25%, 31%);
+
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 50%;
+}
+.win::before {
+  z-index: -1;
+  animation: anim 1.5s infinite;
+}
+
+.win::after {
+  z-index: -2;
+
+  animation: anim2 1.5s infinite;
+}
+
+.playBtn {
+  background: white;
+  color: hsl(229, 25%, 31%);
+  padding: 15px;
+  font-size: 13px;
+  width: 35%;
+  min-width: 60px;
+  border-radius: 8px;
+}
+
+.btn {
+  position: relative;
+}
+
+@keyframes anim {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+}
+@keyframes anim2 {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.9);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .results,
+  .pending {
+    margin-top: 5%;
+    grid-template-columns: repeat(3, 1fr);
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .result {
+    grid-row: 1;
+    grid-column: 2;
+  }
+  .pending {
+    width: 50%;
+    gap: 20px;
+  }
+  .pick {
+    flex-direction: column;
+  }
+  .pick h3 {
+    margin-bottom: 35px;
+  }
+  .btn,
+  .house {
+    height: 200px;
+    width: 200px;
+  }
+  .btn img {
+    transform: scale(1.3);
+  }
+  .win {
+    height: 200px;
+    width: 200px;
+  }
+}
+@media screen and (max-height: 600px) {
+  .results {
+    height: 50vh;
+    max-height: 500px;
+  }
+}
+@media screen and (min-height: 1300px) {
+  .results {
+    height: 80vh;
+    max-height: 800px;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .results {
+    width: 60%;
+  }
+
+  .pending {
+    width: 40%;
+    gap: 0px;
+  }
+}
