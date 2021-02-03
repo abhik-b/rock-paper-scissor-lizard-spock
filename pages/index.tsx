@@ -27,7 +27,7 @@ export default function Home() {
           {advancedMode ? "Normal" : "Advanced"} Mode
         </div>
         <div className="rules" onClick={() => setOpen(!open)}>
-          Rules
+          Rulles
         </div>
       </footer>
       {selected >= 0 ? (
